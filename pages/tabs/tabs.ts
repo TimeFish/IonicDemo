@@ -2,11 +2,14 @@ import {Component} from '@angular/core';
 import {HomePage} from '../home/home';
 import {AboutPage} from '../about/about';
 import {ContactPage} from '../contact/contact';
-
+import {Tabs} from 'ionic-angular';
+import {Injectable,ViewChild} from '@angular/core'
 @Component({
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
+
+  @viewChild('mainTabs') tabRef：Tabs
 
   private tab1Root: any;
   private tab2Root: any;
@@ -19,4 +22,9 @@ export class TabsPage {
     this.tab2Root = AboutPage;
     this.tab3Root = ContactPage;
   }
+
+  ionViewDidEnter(){
+    this.tabRef.select(2);
+  }
+
 }
